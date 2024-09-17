@@ -1,5 +1,9 @@
 <div class="app-sidebar sidebar-shadow">
   <div class="app-header__logo">
+    <!-- <div class="logo-src"></div> -->
+    <!-- <a href="" class="logo-src">
+         <div style="font-size:18pt;color:#fff;">SHORT NAME</div>
+      </a> -->
     <div class="header__pane ml-auto">
       <div>
         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -29,36 +33,37 @@
     </span>
   </div>
   <div class="scrollbar-sidebar">
-    <div class="app-sidebar__inner">
+    <div class="app-sidebar__inner ">
       <ul class="vertical-nav-menu">
         <li class="app-sidebar__heading">Side Menu</li>
         <li>
-          <a href="?" <?php if ($page == "") echo "class='mm-active'"; ?>>
+          <a href="?" class="<?php echo $navDashboard; ?>">
             <i class="metismenu-icon pe-7s-keypad" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">Dashboard</span>
+            <span style="font-size:12pt;">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" class="<?php echo $navCoop; ?>">
             <i class="metismenu-icon pe-7s-helm" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">ออกฝึกสหกิจศึกษา</span>
+            <span style="font-size:12pt;">ออกฝึกสหกิจศึกษา</span>
             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
           </a>
-          <ul>
-            <li>
-              <a href="#">
+          <ul class="<?php echo $navSubCoop; ?>">
+            <li class="<?php echo $navTermCoop; ?>">
+              <a href="?page=coop-term">
                 <i class="metismenu-icon">
                 </i>ภาคการศึกษา
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="<?php echo $navStudentCoop; ?>">
+              <a href="?page=coop-student">
                 <i class="metismenu-icon">
                 </i>นักศึกษาสหกิจฯ
               </a>
             </li>
             <li>
-              <a href="#">
+            <li class="<?php echo $navAdvisorCoop; ?>">
+              <a href="?page=coop-advisor">
                 <i class="metismenu-icon">
                 </i>อาจารย์ที่ปรึกษา
               </a>
@@ -66,26 +71,27 @@
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="?page=experience" class="<?php echo $navExperience; ?>">
             <i class="metismenu-icon pe-7s-settings" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">การฝึกงาน / WIL</span>
+            <span style="font-size:12pt;">การฝึกงาน / WIL</span>
             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
           </a>
-          <ul>
-            <li>
-              <a href="#">
+          <ul class="<?php echo $navSubExperience; ?>">
+            <li class="<?php echo $navTermExperience; ?>">
+              <a href="?page=experience-term">
                 <i class="metismenu-icon">
                 </i>ภาคการศึกษา
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="<?php echo $navStudentExperience; ?>">
+              <a href="?page=experience-student">
                 <i class="metismenu-icon">
                 </i>นักศึกษาสหกิจฯ
               </a>
             </li>
             <li>
-              <a href="#">
+            <li class="<?php echo $navAdvisorExperience; ?>">
+              <a href="?page=experience-advisor">
                 <i class="metismenu-icon">
                 </i>อาจารย์ที่ปรึกษา
               </a>
@@ -93,26 +99,27 @@
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="?page=project" class="<?php echo $navProject; ?>">
             <i class="metismenu-icon pe-7s-server" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">โครงงานนักศึกษา</span>
+            <span style="font-size:12pt;">โครงงานนักศึกษา</span>
             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
           </a>
-          <ul>
-            <li>
-              <a href="#">
+          <ul class="<?php echo $navSubProject; ?>">
+            <li class="<?php echo $navTermProject; ?>">
+              <a href="?page=project-term">
                 <i class="metismenu-icon">
                 </i>ภาคการศึกษา
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li class="<?php echo $navStudentProject; ?>">
+              <a href="?page=project-student">
                 <i class="metismenu-icon">
                 </i>นักศึกษาสหกิจฯ
               </a>
             </li>
             <li>
-              <a href="#">
+            <li class="<?php echo $navAdvisorProject; ?>">
+              <a href="?page=project-advisor">
                 <i class="metismenu-icon">
                 </i>อาจารย์ที่ปรึกษา
               </a>
@@ -120,21 +127,21 @@
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="?page=organization" class="<?php echo $navOrganization; ?>">
             <i class="metismenu-icon pe-7s-culture" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">สถานประกอบการ</span>
+            <span style="font-size:12pt;">สถานประกอบการ</span>
           </a>
         </li>
         <li>
-          <a href="?page=member" <?php if ($page == "member") echo "class='mm-active'"; ?>>
+          <a href="?page=member" class="<?php echo $navMember; ?>">
             <i class="metismenu-icon pe-7s-users" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">อาจารย์/เจ้าหน้าที่</span>
+            <span style="font-size:12pt;">อาจารย์ / เจ้าหน้าที่</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="?page=contact" class="<?php echo $navContact; ?>">
             <i class="metismenu-icon pe-7s-headphones" style="font-size:16pt;"></i>
-            <span style="font-size:13pt;">ติดต่อ / สอบถาม</span>
+            <span style="font-size:12pt;">ติดต่อ / สอบถาม</span>
           </a>
         </li>
       </ul>

@@ -1,37 +1,38 @@
 <?php
-// include('includes/conn.php');
-// $title = $_POST['title'];
-// $fname = $_POST['fname'];
-// $lname = $_POST['lname'];
-// $pro_id = intval($_POST['pro_id']);
-// $email = $_POST['email'];
-// $password = $_POST['password'];
-
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// $sql = "INSERT INTO member (mem_code, mem_title,mem_fname,mem_lname,pro_id,mem_email,mem_password,mem_active)
-// VALUES ('T','$title', '$fname', '$lname', $pro_id, '$email', '$password','Y')";
-// $result = $conn->query($sql);
-// echo $conn->error;
-
-
-// $conn->close();
-// if ($conn->query($sql) === TRUE) {
-//     echo "New record created successfully";
-// } else {
-//     echo "Error: ";
-// }
-
-// $conn->close();
-// }
+include('includes/conn.php');
 
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+error_reporting(E_ALL);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $title = $_POST['title'];
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $pro_id = $_POST['pro_id'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $sql = "INSERT INTO member (mem_code, mem_title,mem_fname,mem_lname,pro_id,mem_email,mem_password,mem_active)
+VALUES ('T','$title', '$fname', '$lname', $pro_id, '$email', '$password','Y')";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: ";
+  }
+} else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  echo "ERROR: POST Method Only";
+}
+$conn->close();
+
+/* ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include('includes/conn.php');
 
-// Get POST data
 $title = $_POST['title'];
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -39,18 +40,14 @@ $pro_id = $_POST['pro_id'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Prepare and bind
 $stmt = $conn->prepare("INSERT INTO member (mem_code,mem_title, mem_fname, mem_lname, pro_id, mem_email, mem_password, mem_active) VALUES ('', ?, ?, ?, ?, ?, ?, 'Y')");
 $stmt->bind_param("ssssss", $title, $fname, $lname, $pro_id, $email, $password);
 
 if ($stmt->execute()) {
-  // Get the last inserted ID
   $last_id = $conn->insert_id;
 
-  // Create the custom ID
   $custom_id = 'M0000' . $last_id;
 
-  // Update the record with the custom ID
   $update_stmt = $conn->prepare("UPDATE member SET mem_code = ? WHERE mem_id = ?");
   $update_stmt->bind_param("si", $custom_id, $last_id);
 
@@ -67,3 +64,4 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
+ */

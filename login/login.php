@@ -6,11 +6,6 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-</head>
-
 <body>
   <?php
   if ($_SESSION['admin'] != null) {
@@ -22,8 +17,11 @@ session_start();
   include("conn.php");
 
 
-  $sql = "SELECT * FROM admin WHERE adm_username = '$username' AND adm_password = '$password'";
-  $result = $conn->query($sql);
+  $sql = $conn->prepare("SELECT * FROM admin WHERE adm_username = ? AND adm_password = ?");
+  $sql->bind_param("ss", $username, $password);
+  $sql->execute();
+  $result = $sql->get_result();
+
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       $_SESSION['sess_id'] = $row['adm_id'];
