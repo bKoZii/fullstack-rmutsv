@@ -1,2 +1,9 @@
 /backend/template.html
 /backend/template-home.php
+.idea
+frontend_NEW
+*.zip
+
+assets/vendor
+frontend/assets
+frontend/*.html

@@ -1,0 +1,163 @@
+<section class="section" style="padding-top:20px;">
+	<div class="container" style="padding-left:17px;padding-right:17px;">
+		<div class="row">
+			<div class="col" data-aos="fade-up" data-aos-delay="100">
+				<div class="row">
+					<div class="col">
+						<h5>โครงงานนักศึกษา</h5>
+					</div>
+					<div class="col" style="text-align:right;padding-bottom:5px;">
+						<div class="btn-group" role="group" style="margin-top:-10px;">
+							<button type="button" class="btn btn-sm btn-outline-primary"
+								style="font-size:12pt;padding:5px 20px;">โครงงานทั้งหมด</button>
+							<button type="button" class="btn btn-sm btn-outline-primary"
+								style="font-size:12pt;padding:5px 20px;">โครงงานของฉัน</button>
+							<button onclick="location.href='?page=project&act=register';" type="button" class="btn btn-sm btn-primary"
+								style="font-size:12pt;padding:5px 20px; ">ลงทะเบียนโครงงาน</button>
+						</div>
+					</div>
+				</div>
+				<hr style="margin-top:0px;margin-bottom:30px;">
+				<div class="row">
+					<div class="col">
+						<p style="font-size:15pt;">ลงทะเบียนโครงงานนักศึกษา</p>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-6">
+						<label for="name_th">ชื่อโครงงาน (ภาษาไทย)</label>
+						<input type="text" id="name_th" onkeyup="checkForm()" class="form-control">
+					</div>
+					<div class="col-6">
+						<label for="name_en">ชื่อโครงงาน (ภาษาอังกฤษ)</label>
+						<input type="text" id="name_en" onkeyup="checkForm()" class="form-control">
+					</div>
+				</div>
+				<div class="row mt-4">
+					<div class="col-4">
+						<label for="pro_id">หลักสูตร/สาขาวิชา</label>
+						<select id="pro_id" onchange="checkForm()" class="form-control">
+							<option value="">- เลือกหลักสูตร/สาขาวิชา -</option>
+							<option value="1">123</option>
+						</select>
+					</div>
+					<div class="col-2">
+						<label for="ter_id">ภาคการศึกษา</label>
+						<select id="ter_id" onchange="checkForm()" class="form-control">
+							<option value="">- เลือกภาคการศึกษา -</option>
+							<option value="1">123</option>
+						</select>
+					</div>
+					<div class="col-6">
+						<label for="typ_id">หมวดโครงงาน</label>
+						<select id="typ_id" onchange="checkForm()" class="form-control">
+							<option value="">- เลือกหมวดโครงงาน -</option>
+							<option value="1">123</option>
+						</select>
+					</div>
+				</div>
+				<div class="row mt-4">
+					<div class="col-4">
+						<label for="adv_id">อาจารย์ที่ปรึกษา</label>
+						<select id="adv_id" onchange="checkForm()" class="form-control">
+							<option value="">- เลือกอาจารย์ที่ปรึกษา -</option>
+							<option value="1">123</option>
+						</select>
+					</div>
+					<div class="col-8">
+						<div class="row">
+							<div class="col">
+								<label for="student1">สมาชิกคนที่ 1</label>
+								<select id="student1" class="form-control" onchange="checkForm()">
+									<option value="">- เลือกสมาชิกคนที่ 1 -</option>
+									<?php 
+                           $sql = "SELECT * FROM project_student";
+                           $result = $conn->query($sql);
+                           if ($result->num_rows > 0) {
+                              while ($row = $result->fetch_assoc()) {
+                                 $stu_id = $row["stu_id"];
+                                 $stu_fname = $row["stu_fname"];
+                                 $stu_lname = $row["stu_lname"];
+                           ?>
+									<option value="<?php echo $stu_id; ?>">
+										<?php echo $stu_fname; ?>
+										<?php echo $stu_lname; ?>
+									</option>
+									<?php }} ?>
+								</select>
+							</div>
+							<div class="col">
+								<label for="student2">สมาชิกคนที่ 2</label>
+								<select id="student2" class="form-control">
+									<option value="">- เลือกสมาชิกคนที่ 2 -</option>
+									<?php 
+                           $sql = "SELECT * FROM project_student";
+                           $result = $conn->query($sql);
+                           if ($result->num_rows > 0) {
+                              while ($row = $result->fetch_assoc()) {
+                                 $stu_id = $row["stu_id"];
+                                 $stu_fname = $row["stu_fname"];
+                                 $stu_lname = $row["stu_lname"];
+                           ?>
+									<option value="<?php echo $stu_id; ?>">
+										<?php echo $stu_fname; ?>
+										<?php echo $stu_lname; ?>
+									</option>
+									<?php }} ?>
+								</select>
+							</div>
+							<div class="col">
+								<label for="student3">สมาชิกคนที่ 3</label>
+								<select id="student3" class="form-control">
+									<option value="">- เลือกสมาชิกคนที่ 3 -</option>
+									<?php 
+                           $sql = "SELECT * FROM project_student";
+                           $result = $conn->query($sql);
+                           if ($result->num_rows > 0) {
+                              while ($row = $result->fetch_assoc()) {
+                                 $stu_id = $row["stu_id"];
+                                 $stu_fname = $row["stu_fname"];
+                                 $stu_lname = $row["stu_lname"];
+                           ?>
+									<option value="<?php echo $stu_id; ?>">
+										<?php echo $stu_fname; ?>
+										<?php echo $stu_lname; ?>
+									</option>
+									<?php }} ?>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-4">
+					<div class="col">
+						<button id="btnSubmit" disabled onclick="submitForm()" class="btn btn-primary">ลงทะเบียนโครงงาน</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	function checkForm() {
+		var name_th = document.getElementById("name_th").value;
+		var name_en = document.getElementById("name_en").value;
+		var pro_id = document.getElementById("pro_id").value;
+		var ter_id = document.getElementById("ter_id").value;
+		var typ_id = document.getElementById("typ_id").value;
+		var adv_id = document.getElementById("adv_id").value;
+		var student = document.getElementById("student1").value;
+		var btnSubmit = document.getElementById("btnSubmit");
+
+		if (name_th && name_en && pro_id && ter_id && typ_id && adv_id && student) {
+			btnSubmit.disabled = false;
+		} else {
+			btnSubmit.disabled = true;
+		}
+	}
+
+	function submitForm() {
+
+	}
+</script>

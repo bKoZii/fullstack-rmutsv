@@ -5,8 +5,6 @@ $sql = "SELECT organization.* FROM organization WHERE organization.org_id = $id 
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
-$conn->close();
-
 ?>
 <div class="modal-body" style="padding: 15px;">
   <div class="row mb-3">
